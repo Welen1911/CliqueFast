@@ -1,3 +1,6 @@
+<?php 
+    require_once "session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,9 @@
     </script>
 </head>
 <body>
-    <nav class="navbar-dark bg-dark text-white p-md-3"><a href="index.html" class="text-decoration-none text-white">CliqueFast</a></nav>
+    <nav class="navbar-dark bg-dark text-white p-md-3"><a href="index.php" class="text-decoration-none text-white">CliqueFast</a>
+        <a class="btn btn-dark" href="logoff.php">Sair</a>
+    </nav>
     <div class="mt-5" style="text-align: center;" id="divPrincipal">
         <div>
             <h1 id="contador" class="text-body-emphasis mb-3"></h1>
@@ -71,7 +76,7 @@
                 menu.className = "btn btn-primary";
                 menu.innerHTML = "Menu Principal";
                 menu.id = "menu";
-                menu.href = "index.html";
+                menu.href = "index.php";
                 document.getElementById("divPrincipal").appendChild(menu)
 
             }
