@@ -8,7 +8,8 @@
     <title>CliqueFast</title>
 </head>
 <body>
-    <nav class="navbar-dark bg-dark text-white p-md-3"><a href="index.php" class="text-decoration-none text-white">CliqueFast</a></nav>
+<nav class="navbar navbar-dark bg-dark text-white p-md-3 "><a href="index.php" class="text-decoration-none text-white">CliqueFast</a>
+    </nav>
     <div class="mt-5" style="text-align: center;" id="divPrincipal">
         <div>
             <form action="validaLogin.php" method="post">

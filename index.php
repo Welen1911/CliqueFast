@@ -18,8 +18,8 @@
     </script>
 </head>
 <body>
-    <nav class="navbar-dark bg-dark text-white p-md-3"><a href="index.php" class="text-decoration-none text-white">CliqueFast</a>
-        <a class="btn btn-dark" href="logoff.php">Sair</a>
+    <nav class="navbar navbar-dark bg-dark text-white p-md-3 "><a href="index.php" class="text-decoration-none text-white">CliqueFast</a>
+    <a class="btn btn-dark" href="logoff.php">Sair</a>
     </nav>
     <div class="mt-5" style="text-align: center;" id="divPrincipal">
         <div>
@@ -73,10 +73,12 @@
             document.getElementById("botao").disabled = true;
             if (!document.getElementById("menu")) {
                 let menu = document.createElement("a");
+                let timer = document.getElementById("cronometro").innerHTML;
+
                 menu.className = "btn btn-primary";
                 menu.innerHTML = "Menu Principal";
                 menu.id = "menu";
-                menu.href = "index.php";
+                menu.href = `controller.php?timer=${timer}&modality=${limite}`;
                 document.getElementById("divPrincipal").appendChild(menu)
 
             }

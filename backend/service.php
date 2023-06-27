@@ -4,7 +4,7 @@
         private $user;
         private $timer;
 
-        public function __construct(Conexao $conexao, User $user, $timer = null) {
+        public function __construct(Conexao $conexao, User $user = null, $timer = null) {
             $this->conexao = $conexao->conectar();
             $this->user = $user;
             $this->timer = $timer;
