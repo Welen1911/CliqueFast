@@ -3,14 +3,13 @@
    require "conexao.php";
    require "service.php";
    require "user.php";
-
-   if ((isset($_GET["timer"]) && $_GET["timer"] != "" ||  $_GET["timer"] != null) && (isset($_GET["modality"]) && $_GET["modality"] != "" || $_GET["modality"] != null)) {
-      $timer = $_GET["timer"];
+   require "timer.php";
+   if ((isset($_POST["timer"]) && $_POST["timer"] != "") || (isset($_POST["modality"]) && $_POST["modality"] != "")) {
+      $cronometro = new Timer($_POST["timer"], $_POST["modality"]);
       $conexao = new Conexao();
-      $service = new Service($conexao, null, $timer);
-    
+      $service = new Service($conexao, null, $cronometro);
       echo "<pre>";
-      print_r("Timer: ".$_GET["timer"]." Modality: ".$_GET["modality"]);
+      print_r("Timer: ".$cronometro->timer." Modality: ".$cronometro->modality);
       echo "<pre>";
    }
 

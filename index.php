@@ -42,6 +42,7 @@
         <button class="btn btn-dark mb-3 mt-3" onclick="inicializacao('contador')" id="botao" disabled>Começar</button>
         <h2 id="cronometro"></h2>
     </div>
+    </form>
 </body>
 <script>
     let hh = 0; 
@@ -72,14 +73,32 @@
             clearInterval(intervalo);
             document.getElementById("botao").disabled = true;
             if (!document.getElementById("menu")) {
-                let menu = document.createElement("a");
+                let menu = document.createElement("button");
                 let timer = document.getElementById("cronometro").innerHTML;
+
+                let form = document.createElement("form")
+                form.id = "form"
+                form.method = "post"
+                form.action = "controller.php"
+        
+                let inputTimer = document.createElement("input")
+                inputTimer.name = "timer"
+                inputTimer.value = timer
+                inputTimer.hidden = true
+
+                let inputModality = document.createElement("input")
+                inputModality.name = "modality"
+                inputModality.value = limite
+                inputModality.hidden = true
 
                 menu.className = "btn btn-primary";
                 menu.innerHTML = "Menu Principal";
                 menu.id = "menu";
-                menu.href = `controller.php?timer=${timer}&modality=${limite}`;
-                document.getElementById("divPrincipal").appendChild(menu)
+                menu.type = "submit"
+                document.getElementById("divPrincipal").appendChild(form)
+                document.getElementById("form").appendChild(inputTimer)
+                document.getElementById("form").appendChild(inputModality)
+                document.getElementById("form").appendChild(menu)
 
             }
         } 
