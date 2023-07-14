@@ -3,8 +3,10 @@
         private $name;
         private $email;
         private $password;
+        private $id_usuario;
 
-        public function __construct($name = null, $email, $password) {
+        public function __construct($id_usuario = null, $name = null, $email, $password) {
+            $this->id_usuario = $id_usuario;
             $this->name = $name;
             $this->email = $email;
             $this->password = $password;

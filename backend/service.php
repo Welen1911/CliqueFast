@@ -4,7 +4,7 @@
         private $user;
         private $timer;
 
-        public function __construct(Conexao $conexao, User $user = null, $timer = null) {
+        public function __construct(Conexao $conexao, User $user = null, Timer $timer = null) {
             $this->conexao = $conexao->conectar();
             $this->user = $user;
             $this->timer = $timer;
@@ -12,6 +12,15 @@
 
 
         public function create() {}
+        public function createCrono() {
+            $query = "insert into tb_crono(timer, id_usuario, modality) values (:timer, :id_usuario, :modality)";
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(":timer", $this->timer->__get("timer"));
+            $stmt->bindValue(":id_usuario", $this->user->__get("id_usuario"));
+            $stmt->bindValue(":modality", $this->timer->__get("modality"));
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        }
 
         public function read() {
             $query = "select id, nome, email from tb_usuarios where email = :email and senha = :senha";

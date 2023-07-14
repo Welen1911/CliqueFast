@@ -7,7 +7,7 @@
         if ($_POST["email"] != "" && $_POST["senha"] != "") {
             
             $conexao = new Conexao();
-            $user = new User(null, $_POST["email"], $_POST["senha"]);
+            $user = new User(null, null, $_POST["email"], $_POST["senha"]);
             $service =  new Service($conexao, $user);
             $read = $service->read();
             if ($read == null) {
