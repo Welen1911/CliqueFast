@@ -12,9 +12,12 @@
     </nav>
     <div class="mt-5" style="text-align: center;" id="divPrincipal">
         <div>
-            <form action="validaLogin.php" method="post">
+            <form action="createController.php" method="post">
                 <div>
-                    <h2 class="mb-5">Login</h2>
+                    <h2 class="mb-5">Cadastro</h2>
+                </div>
+                <div class="mb-3">
+                    <input class="col-sm-2" name="nome" id="nome" type="text" placeholder="Nome">
                 </div>
                 <div class="mb-3">
                     <input class="col-sm-2" name="email" id="email" type="email" placeholder="E-mail">
@@ -23,10 +26,7 @@
                     <input class="col-sm-2" name="senha"  id="senha" type="password" placeholder="Senha">
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-dark col-sm-2" type="submit" id="botaoEntrar">Entrar</button>
-                </div>
-                <div class="mb-3">
-                    <a class="btn btn-secondary col-sm-2" href="cadastro.php" id="cadastro">Criar conta</a>
+                    <button class="btn btn-dark col-sm-2" type="submit" id="cadastrar">Cadastrar</button>
                 </div>
             </form>
         </div>

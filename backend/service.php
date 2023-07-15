@@ -11,7 +11,21 @@
         }
 
 
-        public function create() {}
+        public function create() {
+            $query = "insert into tb_usuarios(nome, email, senha) values (:nome, :email, :senha)";
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(":nome", $this->user->__get("name"));
+            $stmt->bindValue(":email", $this->user->__get("email"));
+            $stmt->bindValue(":senha", $this->user->__get("password"));
+            $stmt->execute();
+            
+            $query = "select id, nome, email from tb_usuarios where email = :email and senha = :senha";
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(":email", $this->user->__get("email"));
+            $stmt->bindValue(":senha", $this->user->__get("password"));
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        }
         public function createCrono() {
             $query = "insert into tb_crono(timer, id_usuario, modality) values (:timer, :id_usuario, :modality)";
             $stmt = $this->conexao->prepare($query);
