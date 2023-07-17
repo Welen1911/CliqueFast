@@ -36,6 +36,14 @@
             return $stmt->fetch(PDO::FETCH_OBJ);
         }
 
+        public function readPlacar() {
+            $query = "SELECT tb_usuarios.nome, tb_crono.timer, tb_crono.modality FROM `tb_crono` RIGHT JOIN tb_usuarios ON tb_crono.id_usuario = tb_usuarios.id where tb_crono.modality = :modality ORDER BY timer ASC ";
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(":modality", $this->timer->__get("modality"));
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ); 
+        }
+
         public function read() {
             $query = "select id, nome, email from tb_usuarios where email = :email and senha = :senha";
             $stmt = $this->conexao->prepare($query);

@@ -19,7 +19,10 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark text-white p-md-3 "><a href="index.php" class="text-decoration-none text-white">CliqueFast</a>
-    <a class="btn btn-dark" href="logoff.php">Sair</a>
+    <div>
+        <a class="btn btn-dark border" href="placar.php">Placar</a>
+        <a class="btn btn-dark border" href="logoff.php">Sair</a>
+    </div>
     </nav>
     <div class="mt-5" style="text-align: center;" id="divPrincipal">
         <div>
