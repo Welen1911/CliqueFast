@@ -1,6 +1,10 @@
 <?php 
     require_once "session.php";
-    $modality = 10;
+    if (isset($_GET["modality"]) && $_GET["modality"] != "") {
+      $modality = $_GET["modality"];
+    } else {
+      $modality = 10;
+    }
     $_SESSION["key"] = "placar";
     require "controller.php";
 ?>
@@ -21,6 +25,15 @@
     </div>
     </nav>
     <div class="mt-5" style="text-align: center;" id="divPrincipal">
+    <div id="select">
+        Selecione a modalidade:
+        <div class="container mt-3">
+          <a class="btn btn-dark" href="placar.php?modality=10">10</a>
+          <a class="btn btn-dark" href="placar.php?modality=30">30</a>
+          <a class="btn btn-dark" href="placar.php?modality=100">100</a>
+        </div>
+          
+          </div></div> 
     <table class="table">
   <thead>
     <tr>
