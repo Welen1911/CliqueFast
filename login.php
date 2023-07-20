@@ -11,6 +11,11 @@
 <body>
 <nav class="navbar navbar-dark bg-dark text-white p-md-3 "><a href="index.php" class="text-decoration-none text-white">CliqueFast</a>
     </nav>
+    <?php if (isset($_GET["erro"]) && $_GET["erro"] == "true") {?>
+        <div class="alert alert-danger" role="alert" style="text-align: center;">
+            Usuário não encontrado!        
+        </div>
+    <?php }?>
     <div class="mt-5" style="text-align: center;" id="divPrincipal">
         <div>
             <form action="validaLogin.php" method="post">
